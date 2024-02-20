@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/myapp
+hooks:
+  BeforeInstall:
+    - location: docker_project/docker-repo/my_files/before.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: docker_project/docker-repo/my_files/after.sh
+      timeout: 300
+      runas: root
